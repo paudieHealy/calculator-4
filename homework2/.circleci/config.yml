@@ -53,3 +53,8 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
+
+test:
+  override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
+    - bundle exec cucumber --format pretty --format json --out $CIRCLE_TEST_REPORTS/cucumber/tests.cucumber
